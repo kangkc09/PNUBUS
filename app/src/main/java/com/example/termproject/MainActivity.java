@@ -9,21 +9,46 @@ import android.widget.Button;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Button btn4;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn4=(Button) findViewById(R.id.button4);
-        btn4.setOnClickListener(new View.OnClickListener(){
+        Button imageButton = (Button) findViewById(R.id.button);
+        imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                Intent Intent =new Intent(MainActivity.this,Notice.class);
-                startActivity(Intent);
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), OntimeBus.class);
+                startActivity(intent);
+            }
+        });
+
+        Button imageButton2 = (Button) findViewById(R.id.button2);
+        imageButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), BusStop.class);
+                startActivity(intent);
+            }
+        });
+
+        Button imageButton3 = (Button) findViewById(R.id.button3);
+        imageButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), BusInformation.class);
+                startActivity(intent);
+            }
+        });
+
+        Button imageButton4 = (Button) findViewById(R.id.button4);
+        imageButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Notice.class);
+                startActivity(intent);
             }
         });
     }
-
 }
