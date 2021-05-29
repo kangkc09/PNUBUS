@@ -8,40 +8,57 @@
     android:orientation="vertical"
     android:padding="10dp">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:text="피누버스" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:orientation="horizontal"
-        android:weightSum="10">
-
-        <EditText
-            android:id="@+id/edit"
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:hint="enter text to search"/>
+        android:gravity="center">
 
         <Button
             android:id="@+id/button"
             android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:text="search"
-            android:textSize="12sp"
-            android:onClick="mOnClick"/>
+            android:layout_height="100dp"
+            android:text="실시간\n버스 위치"
+            android:textSize="12dp" />
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:textSize="12dp"
+            android:text="버스\n정류장 위치" />
     </LinearLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="13sp"
-            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:textSize="12dp"
+            android:text="승하차\n버스정보" />
 
-    </ScrollView>
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:textSize="12dp"
+            android:text="공지사항" />
+    </LinearLayout>
+
 
 </LinearLayout>

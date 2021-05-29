@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Termproject">
+        <activity android:name=".Notice"></activity>
+        <activity android:name=".BusInformation" />
+        <activity android:name=".BusStop" />
+        <activity android:name=".OntimeBus" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
