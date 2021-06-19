@@ -24,6 +24,9 @@ public class OntimeBus extends AppCompatActivity {
     String key="4fjxBK7t4qYFtFF%2BTQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s%2BjIHDrc%2FEZQSxrm5Z8fgHKnkvyXQ%3D%3D";
 //인증키
 
+
+
+
     String data;
 
     @Override
@@ -67,6 +70,7 @@ public class OntimeBus extends AppCompatActivity {
     //XmlPullParser를 이용하여 Naver 에서 제공하는 OpenAPI XML 파일 파싱하기(parsing)
     String getXmlData(){
 
+
         StringBuffer buffer=new StringBuffer();
         String bstopid = "212540201";
         String lineid = "5291107000";
@@ -90,31 +94,43 @@ public class OntimeBus extends AppCompatActivity {
             int eventType= xpp.getEventType();
 
             while( eventType != XmlPullParser.END_DOCUMENT ){
-                switch( eventType ) {
+                switch( eventType ){
                     case XmlPullParser.START_DOCUMENT:
                         buffer.append("파싱 시작...\n\n");
                         break;
 
                     case XmlPullParser.START_TAG:
-                        tag = xpp.getName();//테그 이름 얻어오기
+                        tag= xpp.getName();//테그 이름 얻어오기
 
-                        if (tag.equals("item")) {
-                            buffer.append("부산대 법학관");// 첫번째 검색결과
-                            buffer.append("\n");
-                        }
-                        else if (tag.equals("min1")) {
-                            buffer.append("남은 시간 : ");
-                            xpp.next();
-                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n"); //줄바꿈 문자 추가
-                        } else if (tag.equals("bstopId")) {
-                            buffer.append("충전소타입 : ");
-                            xpp.next();
-                            buffer.append(xpp.getText());//category 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n");//줄바꿈 문자 추가
+                        if(tag.equals("item")) // 첫번째 검색결과
+                            buffer.append("법학관 버스\n");
+                        else if(tag.equals("min1")){
+                        buffer.append("첫번째 버스 남은 도착시간 : ");
+                        xpp.next();
+                        buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                        buffer.append("\n"); //줄바꿈 문자 추가
+                    }
+                    else if(tag.equals("station1")){
+                        buffer.append("남은 정거장 개수 : ");
+                        xpp.next();
+                        buffer.append(xpp.getText());//category 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                        buffer.append("\n");//줄바꿈 문자 추가
+                    }
+                    else if(tag.equals("min2")){
+                        buffer.append("두번째 버스 남은 도착시간 :");
+                        xpp.next();
+                        buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                        buffer.append("\n");//줄바꿈 문자 추가
+                    }
+                    else if(tag.equals("station2")){
+                        buffer.append("남은 정거장 개수 :");
+                        xpp.next();
+                        buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                        buffer.append("\n");//줄바꿈 문자 추가
+                    }
 
 
-                        }
+
                         break;
 
                     case XmlPullParser.TEXT:
