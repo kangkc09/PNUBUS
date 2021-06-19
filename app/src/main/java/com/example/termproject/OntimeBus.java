@@ -32,7 +32,7 @@ public class OntimeBus extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_ontime);
 
         edit= (EditText)findViewById(R.id.edit);
         text= (TextView)findViewById(R.id.result);
