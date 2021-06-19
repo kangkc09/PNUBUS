@@ -1,6 +1,5 @@
 package com.example.termproject;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
