@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Notice">
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:text="코로나로 인한 야간버스 운행 중지"
+        android:textSize="20dp"
+        app:backgroundTint="@android:color/darker_gray" />
+</LinearLayout>

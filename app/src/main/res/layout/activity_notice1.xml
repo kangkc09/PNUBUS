@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Notice1">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="안녕하세요. 피누버스 운영진입니다.\n
+        \n코로나19로 인해 부산대학교 순환버스의 야간운행을 잠시 중단함을 알려드립니다.
+        \n따라서 20:00에 부산대역에서 막차가 출발함을 알려드립니다.
+        \n이 점 참고하셔서 이용하시는데 불편함이 없으시길 바랍니다.\n
+        \n운영진 일동"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        />
+</LinearLayout>
