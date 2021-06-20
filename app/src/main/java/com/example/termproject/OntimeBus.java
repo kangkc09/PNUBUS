@@ -49,7 +49,7 @@ public class OntimeBus extends AppCompatActivity {
     //Button을 클릭했을 때 자동으로 호출되는 callback method....
     public void mOnClick(View v){
         switch( v.getId() ){
-            case R.id.button_LA1:
+            case R.id.button_Stn:   //부산대역
 
                 //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
                 new Thread(new Runnable() {
@@ -58,6 +58,270 @@ public class OntimeBus extends AppCompatActivity {
                     public void run() {
                         // TODO Auto-generated method stub
                         data= getXmlData("175710101");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_BB:        //부산은행
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("175620401");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_FD1:       //부산대정문 상
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("175780401");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_HQ1:       //부산대본관 상
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("176460301");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_MH1:       //문창회관 상
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("176470201");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_SL1:       //새벽벌도서관 상
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("176490201");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_SO1:       //사회관 상
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("176500301");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_LA1:       //법학관 상
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("212540201");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_CH1:       //화학관 상
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("212540202");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_AR1:       //예술관 상
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("176450201");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_AT1:       //미술관 상
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("212560101");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_MU1:       //음악관 상
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("212560102");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
+
+                        //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
+                        //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // TODO Auto-generated method stub
+                                text.setText(data); //TextView에 문자열  data 출력
+                            }
+                        });
+                    }
+                }).start();
+                break;
+            case R.id.button_GA:        //경암체육관
+
+                //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        data= getXmlData("217560101");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
 
                         //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
                         //runOnUiThread()를 이용하여 UI Thread가 TextView 글씨 변경하도록 함

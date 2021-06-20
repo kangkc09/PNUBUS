@@ -114,7 +114,7 @@
                 android:text="부산대본관" />
 
             <Button
-                android:id="@+id/button_AL1"
+                android:id="@+id/button_AR1"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
