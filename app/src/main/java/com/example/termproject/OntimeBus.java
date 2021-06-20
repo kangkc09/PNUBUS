@@ -346,7 +346,7 @@ public class OntimeBus extends AppCompatActivity {
        // String lineid = "5291107000";
         //String queryUrl="http://61.43.246.153/openapi-data/service/busanBIMS2/busStopArr?serviceKey="//요청 URL
         //        +key+"&bstopid="+bstopid+"&lineid="+lineid;
-        String queryUrl="http://61.43.246.153/openapi-data/service/busanBIMS2/StopArr?serviceKey="//요청 URL
+        String queryUrl="http://61.43.246.153/openapi-data/service/busanBIMS2/stopArr?serviceKey="//요청 URL
                 +key+"&bstopid="+bstopid;
 
         boolean initem=false, inmin1 = false, inmin2 = false, instation1 = false, instation2 = false;
