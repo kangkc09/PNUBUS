@@ -1,10 +1,12 @@
 package com.example.termproject;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import com.naver.maps.geometry.LatLng;
+import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapFragment;
 import com.naver.maps.map.NaverMap;
@@ -16,6 +18,7 @@ import com.naver.maps.map.overlay.LocationOverlay;
 import com.naver.maps.map.overlay.Marker;
 import com.naver.maps.map.overlay.Overlay;
 import com.naver.maps.map.util.FusedLocationSource;
+import com.naver.maps.map.util.MarkerIcons;
 
 public class BusStop extends AppCompatActivity implements OnMapReadyCallback {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
@@ -24,7 +27,7 @@ public class BusStop extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_stop);
         locationSource =
                 new FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE);
 
@@ -60,7 +63,7 @@ public class BusStop extends AppCompatActivity implements OnMapReadyCallback {
         LocationOverlay locationOverlay=naverMap.getLocationOverlay();
 
         InfoWindow infoWindow=new InfoWindow();
-        //
+
         Marker markerStn=new Marker();  //부산대역
         Marker markerBB=new Marker();  //부산은행
         Marker markerFD1=new Marker();  //부산대정문 상
@@ -93,56 +96,106 @@ public class BusStop extends AppCompatActivity implements OnMapReadyCallback {
         markerStn.setMap(naverMap);
         markerBB.setPosition(new LatLng(35.23144217, 129.0857443));
         markerBB.setMap(naverMap);
+        markerBB.setIcon(MarkerIcons.BLACK);
+        markerBB.setIconTintColor(Color.RED);
         markerFD1.setPosition(new LatLng(35.23169851, 129.0845673));
         markerFD1.setMap(naverMap);
+        markerFD1.setIcon(MarkerIcons.BLACK);
+        markerFD1.setIconTintColor(Color.RED);
         markerHQ1.setPosition(new LatLng(35.2328365, 129.0835395));
         markerHQ1.setMap(naverMap);
+        markerHQ1.setIcon(MarkerIcons.BLACK);
+        markerHQ1.setIconTintColor(Color.RED);
         markerMH1.setPosition(new LatLng(35.23420688, 129.0822738));
         markerMH1.setMap(naverMap);
+        markerMH1.setIcon(MarkerIcons.BLACK);
+        markerMH1.setIconTintColor(Color.RED);
         markerSL1.setPosition(new LatLng(35.23514919, 129.0815564));
         markerSL1.setMap(naverMap);
+        markerSL1.setIcon(MarkerIcons.BLACK);
+        markerSL1.setIconTintColor(Color.RED);
         markerSO1.setPosition(new LatLng(35.23576513, 129.080085));
         markerSO1.setMap(naverMap);
+        markerSO1.setIcon(MarkerIcons.BLACK);
+        markerSO1.setIconTintColor(Color.RED);
         markerLA1.setPosition(new LatLng(35.23617376, 129.0786493));
         markerLA1.setMap(naverMap);
+        markerLA1.setIcon(MarkerIcons.BLACK);
+        markerLA1.setIconTintColor(Color.RED);
         markerCH1.setPosition(new LatLng(35.23451566, 129.0781237));
         markerCH1.setMap(naverMap);
+        markerCH1.setIcon(MarkerIcons.BLACK);
+        markerCH1.setIconTintColor(Color.RED);
         markerAR1.setPosition(new LatLng(35.23324909, 129.0778882));
         markerAR1.setMap(naverMap);
+        markerAR1.setIcon(MarkerIcons.BLACK);
+        markerAR1.setIconTintColor(Color.RED);
         markerAT1.setPosition(new LatLng(35.23274384, 129.0763487));
         markerAT1.setMap(naverMap);
+        markerAT1.setIcon(MarkerIcons.BLACK);
+        markerAT1.setIconTintColor(Color.RED);
         markerMU1.setPosition(new LatLng(35.23339087, 129.0764531));
         markerMU1.setMap(naverMap);
+        markerMU1.setIcon(MarkerIcons.BLACK);
+        markerMU1.setIconTintColor(Color.RED);
         markerGA.setPosition(new LatLng(35.23368565, 129.0755545));
         markerGA.setMap(naverMap);
         markerMU2.setPosition(new LatLng(35.23325868, 129.0762794));
         markerMU2.setMap(naverMap);
+        markerMU2.setIcon(MarkerIcons.BLACK);
+        markerMU2.setIconTintColor(Color.BLUE);
         markerAT2.setPosition(new LatLng(35.23260649, 129.0761631));
         markerAT2.setMap(naverMap);
+        markerAT2.setIcon(MarkerIcons.BLACK);
+        markerAT2.setIconTintColor(Color.BLUE);
         markerAR2.setPosition(new LatLng(35.23212966, 129.0773145));
         markerAR2.setMap(naverMap);
+        markerAR2.setIcon(MarkerIcons.BLACK);
+        markerAR2.setIconTintColor(Color.BLUE);
         markerSH.setPosition(new LatLng(35.23373314, 129.0780379));
         markerSH.setMap(naverMap);
+        markerSH.setIcon(MarkerIcons.BLACK);
+        markerSH.setIconTintColor(Color.BLUE);
         markerCH2.setPosition(new LatLng(35.23448619, 129.0782658));
         markerCH2.setMap(naverMap);
+        markerCH2.setIcon(MarkerIcons.BLACK);
+        markerCH2.setIconTintColor(Color.BLUE);
         markerLA2.setPosition(new LatLng(35.23626663, 129.0790294));
         markerLA2.setMap(naverMap);
+        markerLA2.setIcon(MarkerIcons.BLACK);
+        markerLA2.setIconTintColor(Color.BLUE);
         markerSO2.setPosition(new LatLng(35.2356276, 129.0800151));
         markerSO2.setMap(naverMap);
+        markerSO2.setIcon(MarkerIcons.BLACK);
+        markerSO2.setIconTintColor(Color.BLUE);
         markerSL2.setPosition(new LatLng(35.23501513, 129.0815106));
         markerSL2.setMap(naverMap);
+        markerSL2.setIcon(MarkerIcons.BLACK);
+        markerSL2.setIconTintColor(Color.BLUE);
         markerMH2.setPosition(new LatLng(35.23408922, 129.08223));
         markerMH2.setMap(naverMap);
+        markerMH2.setIcon(MarkerIcons.BLACK);
+        markerMH2.setIconTintColor(Color.BLUE);
         markerHQ2.setPosition(new LatLng(35.23296008, 129.0834273));
         markerHQ2.setMap(naverMap);
+        markerHQ2.setIcon(MarkerIcons.BLACK);
+        markerHQ2.setIconTintColor(Color.BLUE);
         markerFD2.setPosition(new LatLng(35.23137227, 129.0844965));
         markerFD2.setMap(naverMap);
+        markerFD2.setIcon(MarkerIcons.BLACK);
+        markerFD2.setIconTintColor(Color.BLUE);
         markerGD.setPosition(new LatLng(35.23058895, 129.0847999));
         markerGD.setMap(naverMap);
+        markerGD.setIcon(MarkerIcons.BLACK);
+        markerGD.setIconTintColor(Color.BLUE);
         markerBD.setPosition(new LatLng(35.22885132, 129.0845887));
         markerBD.setMap(naverMap);
+        markerBD.setIcon(MarkerIcons.BLACK);
+        markerBD.setIconTintColor(Color.BLUE);
         markerSB.setPosition(new LatLng(35.22847444, 129.0854765));
         markerSB.setMap(naverMap);
+        markerSB.setIcon(MarkerIcons.BLACK);
+        markerSB.setIconTintColor(Color.BLUE);
         //
         naverMap.setOnMapClickListener((coord,point)->{
             infoWindow.close();
