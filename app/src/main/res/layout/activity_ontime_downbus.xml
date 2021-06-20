@@ -201,9 +201,6 @@
                 android:text="제2도서관" />
         </TableRow>
 
-        <TableRow>
-
-        </TableRow>
     </TableLayout>
 
     <TextView
