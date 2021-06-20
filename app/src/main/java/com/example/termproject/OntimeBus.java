@@ -19,7 +19,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class OntimeBus extends AppCompatActivity {
-    EditText edit;
     TextView text;
 
     XmlPullParser xpp;
