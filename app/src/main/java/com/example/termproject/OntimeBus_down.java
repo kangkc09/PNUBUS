@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class OntimeBus extends AppCompatActivity {
+public class OntimeBus_down extends AppCompatActivity {
     EditText edit;
     TextView text;
 
@@ -34,12 +34,12 @@ public class OntimeBus extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ontime);
-        Button imageButton = (Button) findViewById(R.id.button_down);           //하행 버튼 클릭
+        setContentView(R.layout.activity_ontime_downbus);
+        Button imageButton = (Button) findViewById(R.id.button_up);           //하행성 버튼 클릭
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), OntimeBus_down.class);
+                Intent intent = new Intent(getApplicationContext(), OntimeBus.class);
                 startActivity(intent);
             }
         });
@@ -49,7 +49,7 @@ public class OntimeBus extends AppCompatActivity {
     //Button을 클릭했을 때 자동으로 호출되는 callback method....
     public void mOnClick(View v){
         switch( v.getId() ){
-            case R.id.button_LA1:
+            case R.id.button:
 
                 //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
                 new Thread(new Runnable() {
@@ -109,29 +109,29 @@ public class OntimeBus extends AppCompatActivity {
                         if(tag.equals("item")) // 첫번째 검색결과
                             buffer.append("법학관 버스\n");
                         else if(tag.equals("min1")){
-                        buffer.append("첫번째 버스 남은 도착시간 : ");
-                        xpp.next();
-                        buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                        buffer.append("\n"); //줄바꿈 문자 추가
-                    }
-                    else if(tag.equals("station1")){
-                        buffer.append("남은 정거장 개수 : ");
-                        xpp.next();
-                        buffer.append(xpp.getText());//category 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                        buffer.append("\n");//줄바꿈 문자 추가
-                    }
-                    else if(tag.equals("min2")){
-                        buffer.append("두번째 버스 남은 도착시간 :");
-                        xpp.next();
-                        buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                        buffer.append("\n");//줄바꿈 문자 추가
-                    }
-                    else if(tag.equals("station2")){
-                        buffer.append("남은 정거장 개수 :");
-                        xpp.next();
-                        buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                        buffer.append("\n");//줄바꿈 문자 추가
-                    }
+                            buffer.append("첫번째 버스 남은 도착시간 : ");
+                            xpp.next();
+                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n"); //줄바꿈 문자 추가
+                        }
+                        else if(tag.equals("station1")){
+                            buffer.append("남은 정거장 개수 : ");
+                            xpp.next();
+                            buffer.append(xpp.getText());//category 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n");//줄바꿈 문자 추가
+                        }
+                        else if(tag.equals("min2")){
+                            buffer.append("두번째 버스 남은 도착시간 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n");//줄바꿈 문자 추가
+                        }
+                        else if(tag.equals("station2")){
+                            buffer.append("남은 정거장 개수 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n");//줄바꿈 문자 추가
+                        }
 
 
 

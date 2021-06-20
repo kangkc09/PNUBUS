@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="10dp">
 
     <LinearLayout
@@ -26,6 +26,7 @@
             android:textSize="12sp" />
 
     </LinearLayout>
+
 
     <TableLayout
         android:layout_width="match_parent"
@@ -53,135 +54,166 @@
         <TableRow>
 
             <Button
-                android:id="@+id/button_Stn"
-                android:layout_width="108dp"
-                android:layout_height="wrap_content"
-                android:onClick="mOnClick"
-                android:text="부산대역" />
-
-            <Button
                 android:id="@+id/button_GA"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
-                android:layout_column="2"
                 android:onClick="mOnClick"
                 android:text="경암체육관" />
+
+            <Button
+                android:id="@+id/button_Stn"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:onClick="mOnClick"
+                android:text="부산대역" />
         </TableRow>
 
         <TableRow>
 
             <Button
-                android:id="@+id/button_BB"
+                android:id="@+id/button_MU2"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
-                android:onClick="mOnClick"
-                android:text="부산은행" />
-
-            <Button
-                android:id="@+id/button_MU1"
-                android:layout_width="108dp"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
                 android:onClick="mOnClick"
                 android:text="음악관" />
+
+            <Button
+                android:id="@+id/button_SB"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:onClick="mOnClick"
+                android:text="신한은행" />
         </TableRow>
 
         <TableRow>
 
             <Button
-                android:id="@+id/button_FD1"
+                android:id="@+id/button_AT2"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
-                android:onClick="mOnClick"
-                android:text="부산대정문" />
-
-            <Button
-                android:id="@+id/button_AT1"
-                android:layout_width="108dp"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
                 android:onClick="mOnClick"
                 android:text="미술관" />
+
+            <Button
+                android:id="@+id/button_BD"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:onClick="mOnClick"
+                android:text="부산대후문" />
         </TableRow>
 
         <TableRow>
 
             <Button
-                android:id="@+id/button_HQ1"
+                android:id="@+id/button_AR2"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
-                android:onClick="mOnClick"
-                android:text="부산대본관" />
-
-            <Button
-                android:id="@+id/button_AL1"
-                android:layout_width="108dp"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
                 android:onClick="mOnClick"
                 android:text="예술관" />
-        </TableRow>
-
-        <TableRow>
 
             <Button
-                android:id="@+id/button_MH1"
-                android:layout_width="108dp"
-                android:layout_height="wrap_content"
-                android:onClick="mOnClick"
-                android:text="문창회관" />
-
-            <Button
-                android:id="@+id/button_CH1"
+                android:id="@+id/button_GD"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:onClick="mOnClick"
-                android:text="화학관" />
+                android:text="금정등기소" />
         </TableRow>
 
         <TableRow>
 
             <Button
-                android:id="@+id/button_SL1"
+                android:id="@+id/button_SH"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:onClick="mOnClick"
-                android:text="새벽벌도서관" />
+                android:text="생활환경관" />
 
             <Button
-                android:id="@+id/button_SO1"
+                android:id="@+id/button_FD2"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:onClick="mOnClick"
+                android:text="부산대정문" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/button_CH2"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:onClick="mOnClick"
+                android:text="화학관" />
+
+            <Button
+                android:id="@+id/button_HQ2"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:onClick="mOnClick"
+                android:text="부산대본관" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/button_LA2"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:text="법학관" />
+
+            <Button
+                android:id="@+id/button_MH2"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:onClick="mOnClick"
+                android:text="문창회관" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/button_SO2"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:text="사회관" />
-
-            <Button
-                android:id="@+id/button_LA1"
-                android:layout_width="108dp"
-                android:layout_height="wrap_content"
-                android:onClick="mOnClick"
-                android:text="법학관" />
-        </TableRow>
-
-        <TableRow>
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_column="0"
-                android:layout_span="3"
+                android:layout_column="1"
                 app:srcCompat="@drawable/ic_baseline_arrow_forward_24"
-                tools:ignore="VectorDrawableCompat"
-                android:contentDescription="TODO" />
+                tools:ignore="VectorDrawableCompat" />
+
+            <Button
+                android:id="@+id/button_SL2"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:onClick="mOnClick"
+                android:text="제2도서관" />
         </TableRow>
 
+        <TableRow>
 
+        </TableRow>
     </TableLayout>
+
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="8sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
+
+
+
+
 </LinearLayout>
