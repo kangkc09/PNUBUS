@@ -183,6 +183,7 @@
                 android:id="@+id/button_SO1"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
+                android:onClick="mOnClick"
                 android:backgroundTint="#00A651"
                 android:text="사회관" />
 

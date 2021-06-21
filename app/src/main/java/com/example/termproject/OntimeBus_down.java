@@ -1,5 +1,6 @@
 package com.example.termproject;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,7 +25,7 @@ import java.net.URLEncoder;
 
 public class OntimeBus_down extends AppCompatActivity {
     TextView text;
-
+    TextView selected;
     XmlPullParser xpp;
     String key="4fjxBK7t4qYFtFF%2BTQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s%2BjIHDrc%2FEZQSxrm5Z8fgHKnkvyXQ%3D%3D";
 //인증키
@@ -37,6 +38,7 @@ public class OntimeBus_down extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        selected=(TextView)findViewById(R.id.selected);
         StrictMode.enableDefaults();
         setContentView(R.layout.activity_ontime_downbus);
         customProgressDialog=new ProgressDialog(this);
@@ -58,13 +60,11 @@ public class OntimeBus_down extends AppCompatActivity {
         customProgressDialog.show();
         switch( v.getId() ){
             case R.id.button_GA:    //경암체육관
-
                 //Android 4.0 이상 부터는 네트워크를 이용할 때 반드시 Thread 사용해야 함
                 new Thread(new Runnable() {
 
                     @Override
                     public void run() {
-                        // TODO Auto-generated method stub
                         data= getXmlData("217560101");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
 
                         //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
@@ -417,7 +417,7 @@ public class OntimeBus_down extends AppCompatActivity {
     String getXmlData(String bstopid){
         String car1 = null, car2 = null;
         String min1 = null, min2 = null;
-        String station1 = null, station2 = null;
+        String station1 = null, station2 = null, nm=null;
         StringBuffer buffer=new StringBuffer();
         String lineid = "5291107000";
         String queryUrl="http://61.43.246.153/openapi-data/service/busanBIMS2/busStopArr?serviceKey="//요청 URL
@@ -450,7 +450,6 @@ public class OntimeBus_down extends AppCompatActivity {
                          else if(tag.equals("arsNo"));
                     else if(tag.equals("bstopid"));
                     else if(tag.equals("bstopidx"));
-                    else if(tag.equals("nodeNm"));
                     else if(tag.equals("gpsX"));
                     else if(tag.equals("gpsY"));
                     else if(tag.equals("bustype"));
@@ -491,6 +490,7 @@ public class OntimeBus_down extends AppCompatActivity {
         } catch (Exception e) {
             // TODO Auto-generated catch blocke.printStackTrace();
         }
+
         customProgressDialog.dismiss();
         if(car1==null)
             buffer.append("도착 정보 없음");

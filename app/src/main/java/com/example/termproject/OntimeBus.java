@@ -392,7 +392,6 @@ public class OntimeBus extends AppCompatActivity {
                         else if(tag.equals("bustype"));
                         else if(tag.equals("lineNo"));
                         else if(tag.equals("lineid"));
-                        else if(tag.equals("nodeNm"));
                         else if(tag.equals("carNo1")){
                             xpp.next();
                             car1 = xpp.getText();

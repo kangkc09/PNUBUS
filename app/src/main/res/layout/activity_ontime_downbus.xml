@@ -187,6 +187,7 @@
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#00A651"
+                android:onClick="mOnClick"
                 android:text="법학관" />
 
             <Button
@@ -206,6 +207,7 @@
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#00A651"
+                android:onClick="mOnClick"
                 android:text="사회관" />
 
             <ImageView
@@ -228,7 +230,13 @@
         </TableRow>
 
     </TableLayout>
-
+    <TextView
+        android:id="@+id/selected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        />
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
