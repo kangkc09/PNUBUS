@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +34,7 @@ public class OntimeBus_down extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StrictMode.enableDefaults();
         setContentView(R.layout.activity_ontime_downbus);
         Button imageButton = (Button) findViewById(R.id.button_up);           //하행성 버튼 클릭
         imageButton.setOnClickListener(new View.OnClickListener() {

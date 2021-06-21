@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +23,7 @@ public class OntimeBus extends AppCompatActivity {
     TextView text;
 
     XmlPullParser xpp;
-    String key="4fjxBK7t4qYFtFF%2BTQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s%2BjIHDrc%2FEZQSxrm5Z8fgHKnkvyXQ%3D%3D";
+    String Servicekey="4fjxBK7t4qYFtFF+TQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s+jIHDrc/EZQSxrm5Z8fgHKnkvyXQ==";
 //인증키
 
 
@@ -33,6 +34,7 @@ public class OntimeBus extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StrictMode.enableDefaults();
         setContentView(R.layout.activity_ontime);
         Button imageButton = (Button) findViewById(R.id.button_down);           //하행 버튼 클릭
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -339,30 +341,30 @@ public class OntimeBus extends AppCompatActivity {
     }//mOnClick method..
 
 
-    //XmlPullParser를 이용하여 Naver 에서 제공하는 OpenAPI XML 파일 파싱하기(parsing)
     String getXmlData(String bstopid){
 
 
         StringBuffer buffer=new StringBuffer();
         String lineid = "5291107000";
         String queryUrl="http://61.43.246.153/openapi-data/service/busanBIMS2/busStopArr?serviceKey="//요청 URL
-                +key+"&bstopid="+bstopid+"&lineid="+lineid;
-       // String queryUrl="http://61.43.246.153/openapi-data/service/busanBIMS2/stopArr?serviceKey="//요청 URL
-        //        +key+"&bstopid="+bstopid;
-
+                +Servicekey+"&bstopid="+bstopid+"&lineid="+lineid;
+        StrictMode.ThreadPolicy policy= new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        buffer.append(queryUrl);
         try {
 
             URL url= new URL(queryUrl);//문자열로 된 요청 url을 URL 객체로 생성.
-            InputStream is= url.openStream(); //url위치로 입력스트림 연결
 
             XmlPullParserFactory factory= XmlPullParserFactory.newInstance();
             XmlPullParser xpp= factory.newPullParser();
-            xpp.setInput( new InputStreamReader(is, "UTF-8") ); //inputstream 으로부터 xml 입력받기
+            xpp.setInput(url.openStream(),null); //inputstream 으로부터 xml 입력받기
 
             String tag;
 
             xpp.next();
             int eventType= xpp.getEventType();
+
+
 /*
             while( eventType != XmlPullParser.END_DOCUMENT ){
                 switch( eventType ){
@@ -439,7 +441,7 @@ public class OntimeBus extends AppCompatActivity {
 */
         } catch (Exception e) {
             buffer.append("에러가 났습니다...");
-            // TODO Auto-generated catch blocke.printStackTrace();
+            // TODO Auto-generated catch block.printStackTrace();
         }
 
         buffer.append("\n파싱 끝\n");
