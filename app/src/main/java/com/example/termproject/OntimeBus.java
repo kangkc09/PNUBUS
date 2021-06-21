@@ -39,6 +39,7 @@ public class OntimeBus extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), OntimeBus_down.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         });
@@ -422,6 +423,7 @@ public class OntimeBus extends AppCompatActivity {
         buffer.append("\n파싱 끝\n");
         return buffer.toString();//StringBuffer 문자열 객체 반환
 
-    }//getXmlData method....
+    }
+    //getXmlData method....
 
 }//MainActivity class..
