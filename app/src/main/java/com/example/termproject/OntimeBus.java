@@ -23,8 +23,8 @@ public class OntimeBus extends AppCompatActivity {
     TextView text;
 
     XmlPullParser xpp;
-   // String Servicekey="4fjxBK7t4qYFtFF%2BTQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s%2BjIHDrc%2FEZQSxrm5Z8fgHKnkvyXQ%3D%3D";
-    String Servicekey="4fjxBK7t4qYFtFF+TQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s+jIHDrc/EZQSxrm5Z8fgHKnkvyXQ==";
+    String Servicekey="4fjxBK7t4qYFtFF%2BTQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s%2BjIHDrc%2FEZQSxrm5Z8fgHKnkvyXQ%3D%3D";
+   // String Servicekey="4fjxBK7t4qYFtFF+TQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s+jIHDrc/EZQSxrm5Z8fgHKnkvyXQ==";
 //인증키
 
 
@@ -343,30 +343,29 @@ public class OntimeBus extends AppCompatActivity {
 
 
     String getXmlData(String bstopid){
-
+        String car1 = null, car2 = null;
+        String min1 = null, min2 = null;
+        String station1 = null, station2 = null;
 
         StringBuffer buffer=new StringBuffer();
         String lineid = "5291107000";
         String queryUrl="http://61.43.246.153/openapi-data/service/busanBIMS2/busStopArr?serviceKey="//요청 URL
                 +Servicekey+"&bstopid="+bstopid+"&lineid="+lineid;
-        StrictMode.ThreadPolicy policy= new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-        buffer.append(queryUrl);
-        try {
 
+        try {
             URL url= new URL(queryUrl);//문자열로 된 요청 url을 URL 객체로 생성.
+            InputStream is= url.openStream(); //url위치로 입력스트림 연결
 
             XmlPullParserFactory factory= XmlPullParserFactory.newInstance();
             XmlPullParser xpp= factory.newPullParser();
-            xpp.setInput(url.openStream(),null); //inputstream 으로부터 xml 입력받기
+            xpp.setInput( new InputStreamReader(is, "UTF-8") ); //inputstream 으로부터 xml 입력받기
 
             String tag;
+
 
             xpp.next();
             int eventType= xpp.getEventType();
 
-
-/*
             while( eventType != XmlPullParser.END_DOCUMENT ){
                 switch( eventType ){
                     case XmlPullParser.START_DOCUMENT:
@@ -388,45 +387,23 @@ public class OntimeBus extends AppCompatActivity {
                         else if(tag.equals("lineid"));
                         else if(tag.equals("bstopidx"));
                         else if(tag.equals("carNo1")){
-                            buffer.append("차량 번호 : ");
                             xpp.next();
-                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n"); //줄바꿈 문자 추가
+                            car1 = xpp.getText();
                         }
                         else if(tag.equals("min1")){
-                            buffer.append("남은 도착시간 : ");
                             xpp.next();
-                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n"); //줄바꿈 문자 추가
+                            min1 = xpp.getText();
                         }
                         else if(tag.equals("station1")){
-                            buffer.append("남은 정거장 개수 : ");
                             xpp.next();
-                            buffer.append(xpp.getText());//category 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n");//줄바꿈 문자 추가
+                            station1 = xpp.getText();
                         }
                         else if(tag.equals("lowplate1"));
-                        else if(tag.equals("carNo2")) {
-                            buffer.append("차량 번호 : ");
-                            xpp.next();
-                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n"); //줄바꿈 문자 추가
-                        }
-                        else if(tag.equals("min2")){
-                            buffer.append("두번째 버스 남은 도착시간 :");
-                            xpp.next();
-                            buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n");//줄바꿈 문자 추가
-                        }
-                        else if(tag.equals("station2")){
-                            buffer.append("남은 정거장 개수 :");
-                            xpp.next();
-                            buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n");//줄바꿈 문자 추가
-                        }
-                    else if(tag.equals("lowplate2"));
+                        else if(tag.equals("carNo2"));
+                        else if(tag.equals("min2"));
+                        else if(tag.equals("station2"));
+                        else if(tag.equals("lowplate2"));
                         break;
-
                     case XmlPullParser.TEXT:
                         break;
 
@@ -439,13 +416,17 @@ public class OntimeBus extends AppCompatActivity {
 
                 eventType= xpp.next();
             }
-*/
-        } catch (Exception e) {
-            buffer.append("에러가 났습니다...");
-            // TODO Auto-generated catch block.printStackTrace();
-        }
 
-        buffer.append("\n파싱 끝\n");
+        } catch (Exception e) {
+            // TODO Auto-generated catch blocke.printStackTrace();
+        }
+        if(car1==null)
+            buffer.append("도착 정보 없음");
+        else {
+            buffer.append("차량 도착 정보\n");
+            buffer.append(min1+"분후 도착");
+            buffer.append(" ("+station1+"정거장 남음)\n");
+        }
         return buffer.toString();//StringBuffer 문자열 객체 반환
 
     }

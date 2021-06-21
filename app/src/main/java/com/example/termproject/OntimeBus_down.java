@@ -407,9 +407,11 @@ public class OntimeBus_down extends AppCompatActivity {
     }//mOnClick method..
 
 
-    //XmlPullParser를 이용하여 Naver 에서 제공하는 OpenAPI XML 파일 파싱하기(parsing)
+    //XmlPullParser를 이용하여 OpenAPI XML 파일 파싱하기(parsing)
     String getXmlData(String bstopid){
-
+        String car1 = null, car2 = null;
+        String min1 = null, min2 = null;
+        String station1 = null, station2 = null;
 
         StringBuffer buffer=new StringBuffer();
         String lineid = "5291107000";
@@ -425,6 +427,7 @@ public class OntimeBus_down extends AppCompatActivity {
             xpp.setInput( new InputStreamReader(is, "UTF-8") ); //inputstream 으로부터 xml 입력받기
 
             String tag;
+
 
             xpp.next();
             int eventType= xpp.getEventType();
@@ -450,42 +453,21 @@ public class OntimeBus_down extends AppCompatActivity {
                     else if(tag.equals("lineid"));
                     else if(tag.equals("bstopidx"));
                         else if(tag.equals("carNo1")){
-                            buffer.append("차량 번호 : ");
                             xpp.next();
-                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n"); //줄바꿈 문자 추가
+                            car1 = xpp.getText();
                         }
                         else if(tag.equals("min1")){
-                            buffer.append("남은 도착시간 : ");
                             xpp.next();
-                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n"); //줄바꿈 문자 추가
+                            min1 = xpp.getText();
                         }
                         else if(tag.equals("station1")){
-                            buffer.append("남은 정거장 개수 : ");
                             xpp.next();
-                            buffer.append(xpp.getText());//category 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n");//줄바꿈 문자 추가
+                            station1 = xpp.getText();
                         }
                         else if(tag.equals("lowplate1"));
-                        else if(tag.equals("carNo2")) {
-                            buffer.append("차량 번호 : ");
-                            xpp.next();
-                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n"); //줄바꿈 문자 추가
-                        }
-                    else if(tag.equals("min2")){
-                        buffer.append("두번째 버스 남은 도착시간 :");
-                        xpp.next();
-                        buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                        buffer.append("\n");//줄바꿈 문자 추가
-                    }
-                    else if(tag.equals("station2")){
-                        buffer.append("남은 정거장 개수 :");
-                        xpp.next();
-                        buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                        buffer.append("\n");//줄바꿈 문자 추가
-                    }
+                        else if(tag.equals("carNo2"));
+                    else if(tag.equals("min2"));
+                    else if(tag.equals("station2"));
                     else if(tag.equals("lowplate2"));
                         break;
                     case XmlPullParser.TEXT:
@@ -504,8 +486,13 @@ public class OntimeBus_down extends AppCompatActivity {
         } catch (Exception e) {
             // TODO Auto-generated catch blocke.printStackTrace();
         }
-
-        buffer.append("파싱 끝\n");
+        if(car1==null)
+            buffer.append("도착 정보 없음");
+        else {
+            buffer.append("첫번째 차량 도착 정보\n");
+            buffer.append(min1+"분후 도착");
+            buffer.append(" ("+station1+"정거장 남음)\n");
+        }
         return buffer.toString();//StringBuffer 문자열 객체 반환
 
     }//getXmlData method....
