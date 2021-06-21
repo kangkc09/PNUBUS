@@ -412,6 +412,7 @@ public class OntimeBus_down extends AppCompatActivity {
         String car1 = null, car2 = null;
         String min1 = null, min2 = null;
         String station1 = null, station2 = null;
+        String nm=null;
 
         StringBuffer buffer=new StringBuffer();
         String lineid = "5291107000";
@@ -451,7 +452,10 @@ public class OntimeBus_down extends AppCompatActivity {
                     else if(tag.equals("bustype"));
                     else if(tag.equals("lineNo"));
                     else if(tag.equals("lineid"));
-                    else if(tag.equals("bstopidx"));
+                    else if(tag.equals("nodeNm")){
+                        xpp.next();
+                        nm=xpp.getText();
+                        }
                         else if(tag.equals("carNo1")){
                             xpp.next();
                             car1 = xpp.getText();
@@ -490,6 +494,7 @@ public class OntimeBus_down extends AppCompatActivity {
             buffer.append("도착 정보 없음");
         else {
             buffer.append("첫번째 차량 도착 정보\n");
+            buffer.append("selected busstop: "+nm+"\n");
             buffer.append(min1+"분후 도착");
             buffer.append(" ("+station1+"정거장 남음)\n");
         }
