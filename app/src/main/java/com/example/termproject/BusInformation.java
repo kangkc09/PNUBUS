@@ -76,7 +76,7 @@ public class BusInformation extends AppCompatActivity {
     }
 
     private String getTime() {
-        long now = System.currentTimeMillis() + 32400000;
+        long now = System.currentTimeMillis();
         Date date = new Date(now);
         SimpleDateFormat mFormat = new SimpleDateFormat("yy/MM/dd HH:mm");
         String time = mFormat.format(date);
@@ -99,7 +99,7 @@ public class BusInformation extends AppCompatActivity {
 
             println("데이터 개수 : " + cursor.getCount());
 
-            for (int i = 0; i < cursor.getCount(); i++) {
+            for (int i = 1; i <= cursor.getCount(); i++) {
                 cursor.moveToNext();
                 String on = cursor.getString(0);
                 String off = cursor.getString(1);
