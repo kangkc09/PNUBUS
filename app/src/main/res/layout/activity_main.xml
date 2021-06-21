@@ -34,7 +34,7 @@
                 android:layout_height="100dp"
                 android:text="실시간\n버스 위치"
                 android:textSize="12dp"
-                app:backgroundTint="#00A651" />
+                android:backgroundTint="#00A651" />
 
             <Space
                 android:layout_width="10dp"
@@ -46,7 +46,7 @@
                 android:layout_height="100dp"
                 android:text="버스\n정류장 위치"
                 android:textSize="12dp"
-                app:backgroundTint="#00A651" />
+                android:backgroundTint="#00A651" />
         </LinearLayout>
 
         <TextView
@@ -73,7 +73,7 @@
                 android:layout_height="100dp"
                 android:text="승하차\n버스정보"
                 android:textSize="12dp"
-                app:backgroundTint="#00A651" />
+                android:backgroundTint="#00A651" />
 
             <Space
                 android:layout_width="10dp"
@@ -85,7 +85,7 @@
                 android:layout_height="100dp"
                 android:text="공지사항"
                 android:textSize="12dp"
-                app:backgroundTint="#00A651" />
+                android:backgroundTint="#00A651" />
         </LinearLayout>
     </FrameLayout>
 
