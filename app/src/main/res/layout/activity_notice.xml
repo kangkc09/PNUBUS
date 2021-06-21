@@ -16,5 +16,5 @@
         android:layout_marginRight="20dp"
         android:text="코로나로 인한 야간버스 운행 중지"
         android:textSize="20dp"
-        app:backgroundTint="@android:color/darker_gray" />
+        android:backgroundTint="@android:color/darker_gray" />
 </LinearLayout>

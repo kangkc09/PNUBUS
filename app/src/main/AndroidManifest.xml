@@ -17,8 +17,10 @@
         <activity android:name=".Notice" />
         <activity android:name=".BusInformation" />
         <activity android:name=".BusStop" />
-        <activity android:name=".OntimeBus"/>
-        <activity android:name=".OntimeBus_down" />
+        <activity android:name=".OntimeBus"
+            android:noHistory="true"/>
+        <activity android:name=".OntimeBus_down"
+            android:noHistory="true"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
