@@ -4,6 +4,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -27,7 +29,7 @@ public class OntimeBus_down extends AppCompatActivity {
     String key="4fjxBK7t4qYFtFF%2BTQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s%2BjIHDrc%2FEZQSxrm5Z8fgHKnkvyXQ%3D%3D";
 //인증키
 
-
+    ProgressDialog customProgressDialog;
 
 
     String data;
@@ -37,6 +39,8 @@ public class OntimeBus_down extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         StrictMode.enableDefaults();
         setContentView(R.layout.activity_ontime_downbus);
+        customProgressDialog=new ProgressDialog(this);
+        customProgressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Button imageButton = (Button) findViewById(R.id.button_up);           //하행성 버튼 클릭
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +55,7 @@ public class OntimeBus_down extends AppCompatActivity {
 
     //Button을 클릭했을 때 자동으로 호출되는 callback method....
     public void mOnClick(View v){
+        customProgressDialog.show();
         switch( v.getId() ){
             case R.id.button_GA:    //경암체육관
 
@@ -486,6 +491,7 @@ public class OntimeBus_down extends AppCompatActivity {
         } catch (Exception e) {
             // TODO Auto-generated catch blocke.printStackTrace();
         }
+        customProgressDialog.dismiss();
         if(car1==null)
             buffer.append("도착 정보 없음");
         else {

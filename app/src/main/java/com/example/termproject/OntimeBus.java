@@ -4,6 +4,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -22,7 +24,7 @@ import java.net.URLEncoder;
 
 public class OntimeBus extends AppCompatActivity {
     TextView text;
-
+    ProgressDialog customProgressDialog;
     XmlPullParser xpp;
     String Servicekey="4fjxBK7t4qYFtFF%2BTQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s%2BjIHDrc%2FEZQSxrm5Z8fgHKnkvyXQ%3D%3D";
    // String Servicekey="4fjxBK7t4qYFtFF+TQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s+jIHDrc/EZQSxrm5Z8fgHKnkvyXQ==";
@@ -36,6 +38,8 @@ public class OntimeBus extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        customProgressDialog=new ProgressDialog(this);
+        customProgressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         StrictMode.enableDefaults();
         setContentView(R.layout.activity_ontime);
         Button imageButton = (Button) findViewById(R.id.button_down);           //하행 버튼 클릭
@@ -52,6 +56,7 @@ public class OntimeBus extends AppCompatActivity {
 
     //Button을 클릭했을 때 자동으로 호출되는 callback method....
     public void mOnClick(View v){
+        customProgressDialog.show();
         switch( v.getId() ){
             case R.id.button_Stn:   //부산대역
 
@@ -258,7 +263,7 @@ public class OntimeBus extends AppCompatActivity {
 
                     @Override
                     public void run() {
-                        // TODO Auto-generated method stub
+
                         data= getXmlData("176450201");//아래 메소드를 호출하여 XML data를 파싱해서 String 객체로 얻어오기
 
                         //UI Thread(Main Thread)를 제외한 어떤 Thread도 화면을 변경할 수 없기때문에
@@ -340,6 +345,7 @@ public class OntimeBus extends AppCompatActivity {
                 }).start();
                 break;
         }
+
     }//mOnClick method..
 
 
@@ -421,6 +427,7 @@ public class OntimeBus extends AppCompatActivity {
         } catch (Exception e) {
             // TODO Auto-generated catch blocke.printStackTrace();
         }
+        customProgressDialog.dismiss();
         if(car1==null)
             buffer.append("도착 정보 없음");
         else {

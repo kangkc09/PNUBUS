@@ -224,7 +224,7 @@
                 android:layout_column="2"
                 android:onClick="mOnClick"
                 android:backgroundTint="#00A651"
-                android:text="제2도서관" />
+                android:text="새벽벌도서관" />
         </TableRow>
 
     </TableLayout>
