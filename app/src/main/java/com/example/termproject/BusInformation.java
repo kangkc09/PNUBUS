@@ -30,7 +30,7 @@ public class BusInformation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_businfo);
 
         showButton = findViewById(R.id.show_btn);
         onButton = findViewById(R.id.board_btn);
