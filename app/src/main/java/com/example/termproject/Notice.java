@@ -30,8 +30,8 @@ public class Notice extends AppCompatActivity {
         notice2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent Intent =new Intent(Notice.this,Notice2.class);
-                startActivity(Intent);
+                Intent Intent2 =new Intent(Notice.this,Notice2.class);
+                startActivity(Intent2);
             }
         });
     }
