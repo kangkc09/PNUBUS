@@ -435,10 +435,25 @@ public class OntimeBus_down extends AppCompatActivity {
                     case XmlPullParser.START_TAG:
                         tag= xpp.getName();//테그 이름 얻어오기
 
-                        if(tag.equals("item")) // 첫번째 검색결과
-                            buffer.append("법학관 버스\n");
+                        if(tag.equals("item")); // 첫번째 검색결과
+                         else if(tag.equals("arsNo"));
+                    else if(tag.equals("bstopid"));
+                    else if(tag.equals("bstopidx"));
+                    else if(tag.equals("nodeNm"));
+                    else if(tag.equals("gpsX"));
+                    else if(tag.equals("gpsY"));
+                    else if(tag.equals("bustype"));
+                    else if(tag.equals("lineNo"));
+                    else if(tag.equals("lineid"));
+                    else if(tag.equals("bstopidx"));
+                        else if(tag.equals("carNo1")){
+                            buffer.append("차량 번호 : ");
+                            xpp.next();
+                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n"); //줄바꿈 문자 추가
+                        }
                         else if(tag.equals("min1")){
-                            buffer.append("첫번째 버스 남은 도착시간 : ");
+                            buffer.append("남은 도착시간 : ");
                             xpp.next();
                             buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
                             buffer.append("\n"); //줄바꿈 문자 추가
@@ -449,23 +464,27 @@ public class OntimeBus_down extends AppCompatActivity {
                             buffer.append(xpp.getText());//category 요소의 TEXT 읽어와서 문자열버퍼에 추가
                             buffer.append("\n");//줄바꿈 문자 추가
                         }
-                        else if(tag.equals("min2")){
-                            buffer.append("두번째 버스 남은 도착시간 :");
+                        else if(tag.equals("lowplate1"));
+                        else if(tag.equals("carNo2")) {
+                            buffer.append("차량 번호 : ");
                             xpp.next();
-                            buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n");//줄바꿈 문자 추가
+                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n"); //줄바꿈 문자 추가
                         }
-                        else if(tag.equals("station2")){
-                            buffer.append("남은 정거장 개수 :");
-                            xpp.next();
-                            buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
-                            buffer.append("\n");//줄바꿈 문자 추가
-                        }
-
-
-
+                    else if(tag.equals("min2")){
+                        buffer.append("두번째 버스 남은 도착시간 :");
+                        xpp.next();
+                        buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                        buffer.append("\n");//줄바꿈 문자 추가
+                    }
+                    else if(tag.equals("station2")){
+                        buffer.append("남은 정거장 개수 :");
+                        xpp.next();
+                        buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                        buffer.append("\n");//줄바꿈 문자 추가
+                    }
+                    else if(tag.equals("lowplate2"));
                         break;
-
                     case XmlPullParser.TEXT:
                         break;
 

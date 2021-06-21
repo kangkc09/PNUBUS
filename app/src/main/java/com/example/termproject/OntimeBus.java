@@ -343,76 +343,96 @@ public class OntimeBus extends AppCompatActivity {
 
 
         StringBuffer buffer=new StringBuffer();
-       // String lineid = "5291107000";
-        //String queryUrl="http://61.43.246.153/openapi-data/service/busanBIMS2/busStopArr?serviceKey="//요청 URL
-        //        +key+"&bstopid="+bstopid+"&lineid="+lineid;
-        String queryUrl="http://61.43.246.153/openapi-data/service/busanBIMS2/stopArr?serviceKey="//요청 URL
-                +key+"&bstopid="+bstopid;
+        String lineid = "5291107000";
+        String queryUrl="http://61.43.246.153/openapi-data/service/busanBIMS2/busStopArr?serviceKey="//요청 URL
+                +key+"&bstopid="+bstopid+"&lineid="+lineid;
+       // String queryUrl="http://61.43.246.153/openapi-data/service/busanBIMS2/stopArr?serviceKey="//요청 URL
+        //        +key+"&bstopid="+bstopid;
 
-        boolean initem=false, inmin1 = false, inmin2 = false, instation1 = false, instation2 = false;
-        String min1 = null, min2 = null, station1 = null, station2 = null;
         try {
-            URL url = new URL("http://openapi.kepco.co.kr/service/evInfoService/getEvSearchList?"
-                    + "&pageNo=1&numOfRows=10&ServiceKey="
-                    + "iOsw4MlgRU0JZpvuR5AkLUfkX%2FAOl0Q03HF78VRzR2g0dz6iD0esiw6HmLHKly6PVvGVP2PPgRpqtpULJBWSHg%3D%3D"
-            ); //검색 URL부분
+            URL url= new URL(queryUrl);//문자열로 된 요청 url을 URL 객체로 생성.
+            InputStream is= url.openStream(); //url위치로 입력스트림 연결
 
-            XmlPullParserFactory parserCreator = XmlPullParserFactory.newInstance();
-            XmlPullParser parser = parserCreator.newPullParser();
+            XmlPullParserFactory factory= XmlPullParserFactory.newInstance();
+            XmlPullParser xpp= factory.newPullParser();
+            xpp.setInput( new InputStreamReader(is, "UTF-8") ); //inputstream 으로부터 xml 입력받기
 
-            parser.setInput(url.openStream(), null);
+            String tag;
 
-            int parserEvent = parser.getEventType();
-            System.out.println("파싱시작합니다.");
+            xpp.next();
+            int eventType= xpp.getEventType();
 
-            while (parserEvent != XmlPullParser.END_DOCUMENT){
-                switch(parserEvent){
-                    case XmlPullParser.START_TAG://parser가 시작 태그를 만나면 실행
-                        if(parser.getName().equals("min1")){ //title 만나면 내용을 받을수 있게 하자
-                            inmin1 = true;
-                        }
-                        if(parser.getName().equals("min2")){ //address 만나면 내용을 받을수 있게 하자
-                            inmin2 = true;
-                        }
-                        if(parser.getName().equals("station1")){ //mapx 만나면 내용을 받을수 있게 하자
-                            instation1 = true;
-                        }
-                        if(parser.getName().equals("station2")){ //mapy 만나면 내용을 받을수 있게 하자
-                            instation2 = true;
-                        }
-                        if(parser.getName().equals("message")){ //message 태그를 만나면 에러 출력
-                            buffer.append("에러\n");
-                            //여기에 에러코드에 따라 다른 메세지를 출력하도록 할 수 있다.
-                        }
+            while( eventType != XmlPullParser.END_DOCUMENT ){
+                switch( eventType ){
+                    case XmlPullParser.START_DOCUMENT:
+                        buffer.append("파싱 시작...\n\n");
                         break;
 
-                    case XmlPullParser.TEXT://parser가 내용에 접근했을때
-                        if(inmin1){ //isTitle이 true일 때 태그의 내용을 저장.
-                            min1 = parser.getText();
-                            inmin1 = false;
+                    case XmlPullParser.START_TAG:
+                        tag= xpp.getName();//테그 이름 얻어오기
+
+                        if(tag.equals("item")); // 첫번째 검색결과
+                        else if(tag.equals("arsNo"));
+                        else if(tag.equals("bstopid"));
+                        else if(tag.equals("bstopidx"));
+                        else if(tag.equals("nodeNm"));
+                        else if(tag.equals("gpsX"));
+                        else if(tag.equals("gpsY"));
+                        else if(tag.equals("bustype"));
+                        else if(tag.equals("lineNo"));
+                        else if(tag.equals("lineid"));
+                        else if(tag.equals("bstopidx"));
+                        else if(tag.equals("carNo1")){
+                            buffer.append("차량 번호 : ");
+                            xpp.next();
+                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n"); //줄바꿈 문자 추가
                         }
-                        if(inmin2){ //isAddress이 true일 때 태그의 내용을 저장.
-                            min2 = parser.getText();
-                            inmin2 = false;
+                        else if(tag.equals("min1")){
+                            buffer.append("남은 도착시간 : ");
+                            xpp.next();
+                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n"); //줄바꿈 문자 추가
                         }
-                        if(instation1){ //isMapx이 true일 때 태그의 내용을 저장.
-                            station1 = parser.getText();
-                            instation1 = false;
+                        else if(tag.equals("station1")){
+                            buffer.append("남은 정거장 개수 : ");
+                            xpp.next();
+                            buffer.append(xpp.getText());//category 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n");//줄바꿈 문자 추가
                         }
-                        if(instation2){ //isMapy이 true일 때 태그의 내용을 저장.
-                            station2 = parser.getText();
-                            instation2 = false;
+                        else if(tag.equals("lowplate1"));
+                        else if(tag.equals("carNo2")) {
+                            buffer.append("차량 번호 : ");
+                            xpp.next();
+                            buffer.append(xpp.getText());//title 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n"); //줄바꿈 문자 추가
                         }
+                        else if(tag.equals("min2")){
+                            buffer.append("두번째 버스 남은 도착시간 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n");//줄바꿈 문자 추가
+                        }
+                        else if(tag.equals("station2")){
+                            buffer.append("남은 정거장 개수 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());//description 요소의 TEXT 읽어와서 문자열버퍼에 추가
+                            buffer.append("\n");//줄바꿈 문자 추가
+                        }
+                    else if(tag.equals("lowplate2"));
                         break;
+
+                    case XmlPullParser.TEXT:
+                        break;
+
                     case XmlPullParser.END_TAG:
-                        if(parser.getName().equals("item")){
-                            buffer.append("다음 버스 남은 시간 : "+ min1 +"\n 다음 버스 남은 정류장: "+ station1
-                            +"다다음 버스 남은 시간:"+ min2+"\n 다다음 버스 남은 정류장"+ station2);
-                            initem = false;
-                        }
+                        tag= xpp.getName(); //테그 이름 얻어오기
+
+                        if(tag.equals("item")) buffer.append("\n");// 첫번째 검색결과종료..줄바꿈
                         break;
                 }
-                parserEvent = parser.next();
+
+                eventType= xpp.next();
             }
 
         } catch (Exception e) {
