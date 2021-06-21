@@ -4,12 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.RenderNode;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -28,17 +34,19 @@ public class BusInformation extends AppCompatActivity {
     String onboard;
     String dropoff;
 
+    private TextView Show_Time_TextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_businfo);
-
         showButton = findViewById(R.id.show_btn);
         onButton = findViewById(R.id.board_btn);
         offButton = findViewById(R.id.drop_btn);
         clearButton = findViewById(R.id.clear_btn);
         textView = findViewById(R.id.textView);
 
+        Show_Time_TextView=(TextView)findViewById(R.id.nowtime);
+        ShowTimeMethod();
         userDatabaseHelper = userDatabaseHelper.getInstance(this);
         database = userDatabaseHelper.getWritableDatabase();
 
@@ -74,7 +82,27 @@ public class BusInformation extends AppCompatActivity {
             }
         });
     }
-
+    public void ShowTimeMethod(){
+        final Handler handler=new Handler(){
+            @Override
+            public void handleMessage(Message msg){
+                Show_Time_TextView.setText(DateFormat.getDateTimeInstance().format(new Date()));
+            }
+        };
+        Runnable task=new Runnable() {
+            @Override
+            public void run() {
+                while(true){
+                    try{
+                        Thread.sleep(1000);
+                    }catch (InterruptedException e){}
+                    handler.sendEmptyMessage(1);
+                }
+            }
+        };
+        Thread thread=new Thread(task);
+        thread.start();
+    }
     private String getTime() {
         long now = System.currentTimeMillis();
         Date date = new Date(now);

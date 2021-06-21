@@ -3,8 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:stretchColumns="*">
+    android:stretchColumns="*"
+    android:background="#005BAA">
 
+
+    <TextView
+        android:id="@+id/nowtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginBottom="100dp"
+        android:textStyle="bold"
+        />
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,17 +26,36 @@
             android:id="@+id/board_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:text="승차"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:backgroundTint="#00A651" />
 
         <Button
             android:id="@+id/drop_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:text="하차"
-            android:textSize="16dp" />
-
+            android:textSize="16dp"
+            android:backgroundTint="#00A651" />
     </TableRow>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <TextView
+            android:id="@+id/textView"
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"/>
+    </ScrollView>
 
     <TableRow
         android:layout_height="wrap_content"
@@ -33,7 +65,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="DB 초기화하기"
-            android:textSize="16dp" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:textSize="16dp"
+            android:backgroundTint="#00A651" />
 
 
         <Button
@@ -41,18 +77,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="승하차 정보보기"
-            android:textSize="16dp" />
-
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:textSize="16dp"
+            android:backgroundTint="#00A651" />
     </TableRow>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </ScrollView>
 
 </TableLayout>
