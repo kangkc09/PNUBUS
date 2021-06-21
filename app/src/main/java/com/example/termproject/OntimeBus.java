@@ -351,6 +351,7 @@ public class OntimeBus extends AppCompatActivity {
         //        +key+"&bstopid="+bstopid;
 
         try {
+
             URL url= new URL(queryUrl);//문자열로 된 요청 url을 URL 객체로 생성.
             InputStream is= url.openStream(); //url위치로 입력스트림 연결
 
@@ -362,7 +363,7 @@ public class OntimeBus extends AppCompatActivity {
 
             xpp.next();
             int eventType= xpp.getEventType();
-
+/*
             while( eventType != XmlPullParser.END_DOCUMENT ){
                 switch( eventType ){
                     case XmlPullParser.START_DOCUMENT:
@@ -435,8 +436,9 @@ public class OntimeBus extends AppCompatActivity {
 
                 eventType= xpp.next();
             }
-
+*/
         } catch (Exception e) {
+            buffer.append("에러가 났습니다...");
             // TODO Auto-generated catch blocke.printStackTrace();
         }
 
