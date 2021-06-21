@@ -23,6 +23,7 @@ public class OntimeBus extends AppCompatActivity {
     TextView text;
 
     XmlPullParser xpp;
+   // String Servicekey="4fjxBK7t4qYFtFF%2BTQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s%2BjIHDrc%2FEZQSxrm5Z8fgHKnkvyXQ%3D%3D";
     String Servicekey="4fjxBK7t4qYFtFF+TQwQsYaGHtdhRpT7rD77MIK3PRkXFthtpbJAgJQl2s+jIHDrc/EZQSxrm5Z8fgHKnkvyXQ==";
 //인증키
 
