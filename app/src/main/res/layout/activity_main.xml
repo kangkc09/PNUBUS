@@ -71,7 +71,7 @@
                 android:id="@+id/button3"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:text="승하차\n버스정보"
+                android:text="승하차\n시간 기록"
                 android:textSize="12dp"
                 android:backgroundTint="#00A651" />
 

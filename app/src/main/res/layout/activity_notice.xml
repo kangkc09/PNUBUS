@@ -4,17 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#005BAA"
     android:orientation="vertical"
     tools:context=".Notice">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/notice1"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
         android:text="코로나로 인한 야간버스 운행 중지"
+        android:backgroundTint="#00A651"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/notice2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:text="서비스 시작 공지"
         android:textSize="20dp"
-        android:backgroundTint="@android:color/darker_gray" />
+        android:backgroundTint="#00A651" />
 </LinearLayout>
