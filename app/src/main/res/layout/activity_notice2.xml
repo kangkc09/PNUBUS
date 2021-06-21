@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#005BAA"
     tools:context=".Notice2">
 
     <TextView
@@ -12,7 +13,7 @@
         android:layout_height="match_parent"
         android:text="안녕하세요. 피누버스 운영진입니다.\n
         \n피누버스가 드디어 오픈하였습니다.\n
-        \n베타 테스터 여러분께서 이용에 불편이 있으시더면 언제든지 건의해주세요.\n
+        \n베타 테스터 여러분께서 이용에 불편이 있으시다면 언제든지 건의해주세요.\n
         \n감사합니다.\n
         \n운영진 일동"
         android:layout_marginLeft="30dp"

@@ -14,7 +14,8 @@
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="3siyu9ucfj" />
-        <activity android:name=".Notice1"></activity>
+        <activity android:name=".Notice1"/>
+        <activity android:name=".Notice2"/>
         <activity android:name=".Notice" />
         <activity android:name=".BusInformation" />
         <activity android:name=".BusStop" />

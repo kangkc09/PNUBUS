@@ -5,32 +5,63 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="10dp">
-
-    <LinearLayout
+    android:padding="10dp"
+    android:background="#005BAA">
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:weightSum="10">
-        <Button
-            android:id="@+id/button_up"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:text="상행버스"
-            android:textSize="12sp" />
-        <Button
-            android:id="@+id/button_down"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:text="하행버스"
-            android:textSize="12sp" />
-
-    </LinearLayout>
-
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:text="상행노선"
+        />
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:stretchColumns="*">
+        android:stretchColumns="*"
+        android:layout_marginTop="30dp">
+
+        <TableRow>
+            <TextView
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:text="시작"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"
+                />
+            <Space>
+            </Space>
+            <TextView
+                android:text="끝"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"
+                />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/button_Stn"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:onClick="mOnClick"
+                android:text="부산대역"
+                android:backgroundTint="#00A651"/>
+
+            <Button
+                android:id="@+id/button_GA"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:onClick="mOnClick"
+                android:text="경암체육관"
+                android:backgroundTint="#00A651"/>
+        </TableRow>
 
         <TableRow>
 
@@ -53,29 +84,12 @@
         <TableRow>
 
             <Button
-                android:id="@+id/button_Stn"
-                android:layout_width="108dp"
-                android:layout_height="wrap_content"
-                android:onClick="mOnClick"
-                android:text="부산대역" />
-
-            <Button
-                android:id="@+id/button_GA"
-                android:layout_width="108dp"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:onClick="mOnClick"
-                android:text="경암체육관" />
-        </TableRow>
-
-        <TableRow>
-
-            <Button
                 android:id="@+id/button_BB"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:onClick="mOnClick"
-                android:text="부산은행" />
+                android:text="부산은행"
+                android:backgroundTint="#00A651"/>
 
             <Button
                 android:id="@+id/button_MU1"
@@ -83,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:onClick="mOnClick"
+                android:backgroundTint="#00A651"
                 android:text="음악관" />
         </TableRow>
 
@@ -93,6 +108,7 @@
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:onClick="mOnClick"
+                android:backgroundTint="#00A651"
                 android:text="부산대정문" />
 
             <Button
@@ -101,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:onClick="mOnClick"
+                android:backgroundTint="#00A651"
                 android:text="미술관" />
         </TableRow>
 
@@ -111,6 +128,7 @@
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:onClick="mOnClick"
+                android:backgroundTint="#00A651"
                 android:text="부산대본관" />
 
             <Button
@@ -118,6 +136,7 @@
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
+                android:backgroundTint="#00A651"
                 android:onClick="mOnClick"
                 android:text="예술관" />
         </TableRow>
@@ -129,14 +148,24 @@
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:onClick="mOnClick"
+                android:backgroundTint="#00A651"
                 android:text="문창회관" />
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/ic_baseline_arrow_forward_24"
+                tools:ignore="VectorDrawableCompat"
+                android:contentDescription="TODO"
+                android:layout_gravity="center"/>
             <Button
                 android:id="@+id/button_CH1"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:onClick="mOnClick"
+                android:backgroundTint="#00A651"
                 android:text="화학관" />
         </TableRow>
 
@@ -147,12 +176,14 @@
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:onClick="mOnClick"
+                android:backgroundTint="#00A651"
                 android:text="새벽벌도서관" />
 
             <Button
                 android:id="@+id/button_SO1"
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#00A651"
                 android:text="사회관" />
 
             <Button
@@ -160,28 +191,25 @@
                 android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:onClick="mOnClick"
+                android:backgroundTint="#00A651"
                 android:text="법학관" />
         </TableRow>
-
-        <TableRow>
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:layout_span="3"
-                app:srcCompat="@drawable/ic_baseline_arrow_forward_24"
-                tools:ignore="VectorDrawableCompat"
-                android:contentDescription="TODO" />
-        </TableRow>
-
 
     </TableLayout>
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="230dp"
         android:textSize="8sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_down"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="하행으로"
+        android:textSize="18sp"
+        android:backgroundTint="#00A651"/>
+
 </LinearLayout>
