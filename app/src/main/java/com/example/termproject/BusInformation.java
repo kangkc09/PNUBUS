@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,7 +31,7 @@ public class BusInformation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_businfo);
 
         showButton = findViewById(R.id.show_btn);
         onButton = findViewById(R.id.board_btn);
@@ -52,6 +53,7 @@ public class BusInformation extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onboard = getTime();
+                Toast.makeText(getApplicationContext(),"승차하였습니다.",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -60,6 +62,7 @@ public class BusInformation extends AppCompatActivity {
             public void onClick(View v) {
                 dropoff = getTime();
                 insertData(onboard, dropoff);
+                Toast.makeText(getApplicationContext(),"승하차 정보가 기록되었습니다",Toast.LENGTH_SHORT).show();
             }
         });
 
